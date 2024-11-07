@@ -1,0 +1,18 @@
+services:
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: [ "CMD-SHELL", "redis-cli ping | grep PONG" ]
+      interval: 1s
+      timeout: 20s
+      retries: 5
+      start_period: 10s  
+    volumes:
+      - redis:/data
+    command: [ "redis-server" ]
+
+volumes:
+  redis:
