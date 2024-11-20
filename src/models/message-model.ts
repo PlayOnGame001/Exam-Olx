@@ -19,7 +19,35 @@ export class Message extends Model {
     @Column({
         type: DataType.UUID,
         allowNull: false,
-        unique: true,
     })
-    senderId!: number;
+    declare senderId: number;
+
+    @ForeignKey(() => User)
+    @Column({
+        type: DataType.UUID,
+        allowNull: false,
+    })
+    declare receiverId: number;
+
+    @ForeignKey(() => Advert)
+    @Column({
+        type: DataType.UUID,
+        allowNull: false,
+    })
+    declare advertId: number;
+
+    @Column({
+        type: DataType.TEXT,
+        allowNull: false,
+    })
+    declare content: string;
+
+    @BelongsTo(() => User, "senderId")
+    declare sender: User;
+
+    @BelongsTo(() => User, "receiverId")
+    declare receiver: User;
+
+    @BelongsTo(() => Advert, "advertId")
+    declare advert: Advert;
 }

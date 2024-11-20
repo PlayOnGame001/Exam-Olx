@@ -1,16 +1,74 @@
 import { Request, Response } from "express";
 import { Message } from "../models/message-model.js";
+import { User } from "../models/user-model.js";
+import { Advert } from "../models/advert-model.js";
 
 export class MessageController {
-
-    static async getMessage(req: Request, res: Response) {
+    static async sendMessage(req: Request, res: Response):Promise<any> {
         try {
-            const message = await Message.findByPk(req.params.id);
-            if (!message) return res.status(404).json({ message: "Message not found" });
-            res.status(200).json(message);
-        } catch (error) {
-            res.status(500).json({ message: "Error retrieving message", error });
+            const senderId = (req.user as { userId: string }).userId;
+            const { receiverId, advertId, content } = req.body;
+
+            const advert = await Advert.findByPk(advertId);
+            if (!advert) {
+                return res.status(404).json({ message: "Объявление не найдено" });
+            }
+
+            const receiver = await User.findByPk(receiverId);
+            if (!receiver) {
+                return res.status(404).json({ message: "Получатель не найден" });
+            }
+
+            const message = await Message.create({
+                senderId,
+                receiverId,
+                advertId,
+                content,
+            });
+            res.status(201).json({ message: "Сообщение успешно отправлено", data: message });
+        } 
+        catch (error) {
+            console.error("Ошибка отправки сообщения:", error);
+            res.status(500).json({ message: "Ошибка отправки сообщения", error });
         }
     }
 
+    static async getMessages(req: Request, res: Response):Promise<any> {
+        try {
+            const userId = (req.user as { userId: string }).userId;
+            const { otherUserId, advertId } = req.query;
+
+            const messages = await Message.findAll({
+                where: {
+                    advertId,
+                    senderId: [userId, otherUserId],
+                    receiverId: [userId, otherUserId],
+                },
+                order: [["createdAt", "ASC"]],
+            });
+            res.status(200).json({ messages });
+        } 
+        catch (error) {
+            console.error("Ошибка при получении сообщений.:", error);
+            res.status(500).json({ message: "Ошибка при получении сообщений.", error });
+        }
+    }
+
+    static async deleteMessage(req: Request, res: Response):Promise<any> {
+        try {
+            const userId = (req.user as { userId: string }).userId;
+            const { messageId } = req.params;
+
+            const message = await Message.findByPk(messageId);
+            if (!message || (message.senderId.toString() !== userId && message.receiverId.toString() !== userId)) {
+                return res.status(404).json({ message: "Сообщение не найдено или доступ запрещен" });
+            }
+            await message.destroy();
+            res.status(200).json({ message: "Сообщение успешно удалено" });
+        } 
+        catch (error) {
+            console.error("Ошибка удаления сообщения:", error);
+            res.status(500).json({ message: "Ошибка удаления сообщения", error });
+        }
+    }
 }
