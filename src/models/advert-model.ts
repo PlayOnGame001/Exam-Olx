@@ -58,10 +58,11 @@ export class Advert extends Model {
     })
     declare isAvailable: boolean;
 
-    @BelongsTo(() => User)
-    declare user: User;
+    // // Связь с пользователем
+    // @BelongsTo(() => User)
+    // declare user: User;
 
-    @BelongsTo(() => Category)
-    declare category: Category;
-    
+    // // Связь с категорией
+    // @BelongsTo(() => Category)
+    // declare category: Category;
 }

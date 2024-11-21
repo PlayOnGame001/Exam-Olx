@@ -5,6 +5,7 @@ import path from "node:path";
 import https from "node:https";
 import { connection } from "./config/config.js";
 import { userRoutes } from "./routes/user-routes.js";
+import { advertRoutes } from "./routes/adverts-routes.js";
 const PORT = process.env.PORT;
 const __dirname = import.meta.dirname;
 connection.sync({ alter: true }).then(() => {
@@ -15,7 +16,9 @@ connection.sync({ alter: true }).then(() => {
     };
     app.use(express.json());
     app.use("/users", userRoutes);
-    https.createServer(options, app).listen(PORT, () => console.log(`Server is running https://127.0.0.1${PORT}`));
+    app.use("/adverts", advertRoutes);
+    https.createServer(options, app).listen(PORT, () => console.log(`Server is running https://127.0.0.1:${PORT}`));
 }).catch((err) => {
-    console.error(err);
+    console.error('Error syncing database:', err);
+    process.exit(1); // Прекращение работы сервера в случае ошибки
 });

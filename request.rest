@@ -1,0 +1,130 @@
+### Регистрация пользователя
+POST https://127.0.0.1:3333/users/register
+Content-Type: application/json
+
+{
+    "login": "user123",
+    "email": "user123@example.com",
+    "password": "securepassword",
+    "role": "user"
+}
+
+### Регистрация пользователя 2
+POST https://127.0.0.1:3333/users/register
+Content-Type: application/json
+
+{
+    "login": "user1231",
+    "email": "user1231@example.com",
+    "password": "securepassword1",
+    "role": "seller"
+}
+
+### Логин пользователя
+POST  https://127.0.0.1:3333/users/login
+Content-Type: application/json
+
+{
+    "login": "user123",
+    "password": "securepassword"
+}
+
+### Логин пользователя 2
+POST  https://127.0.0.1:3333/users/login
+Content-Type: application/json
+
+{
+    "login": "user1231",
+    "password": "securepassword1"
+}
+
+### Получение профиля пользователя (необходим авторизационный токен)
+GET  https://127.0.0.1:3333/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+
+### Обновление данных пользователя (необходим авторизационный токен)
+PUT  https://127.0.0.1:3333/users/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+Content-Type: application/json
+
+{
+    "login": "newLogin",
+    "email": "newEmail@example.com",
+    "role": "seller"
+}
+
+### Удаление пользователя (необходим авторизационный токен)
+DELETE  https://127.0.0.1:3333/users/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+
+### Создание объявления (необходим авторизационный токен)
+POST https://127.0.0.1:3333/adverts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+Content-Type: application/json
+
+{
+    "userId": "1f4369e8-a764-432c-b8fd-64b1cb95be0e",
+    "categoryId": "category-id",
+    "title": "Ne test11",
+    "description": "Sobitie1111",
+    "price": 1001.50,
+    "location": "Ukrain1",
+    "isAvailable": true
+}
+
+### Получение объявления по ID
+GET https://127.0.0.1:3333/adverts/b060af0f-c352-46a7-b4fd-b4fca1d4e906
+
+### Получение всех объявлений
+GET https://127.0.0.1:3333/adverts
+
+### Обновление объявления (необходим авторизационный токен)
+PUT https://127.0.0.1:3333/adverts/b060af0f-c352-46a7-b4fd-b4fca1d4e906
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxOTUyMSwiZXhwIjoxNzMyMjIzMTIxfQ.lxyV__7IFrN6h2ifl0C11vBZQJH6SgCy7Oz4Zk5Iogo
+Content-Type: application/json
+
+{
+    "title": "Обновленное название",
+    "description": "Обновленное описание",
+    "categoryId": "new-category-id",
+    "price": 150.75,
+    "location": "Odessa",
+    "isAvailable": false
+}
+
+### Удаление объявления (необходим авторизационный токен)
+DELETE https://127.0.0.1:3333/adverts/b060af0f-c352-46a7-b4fd-b4fca1d4e906
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxOTUyMSwiZXhwIjoxNzMyMjIzMTIxfQ.lxyV__7IFrN6h2ifl0C11vBZQJH6SgCy7Oz4Zk5Iogo
+
+### Поиск объявлений
+GET https://127.0.0.1:3333/adverts/search?category=:category&location=:location&priceMin=:minPrice&priceMax=:maxPrice&keyword=:keyword&sortBy=:sortBy&order=:order
+
+### Получение всех категорий
+GET https://127.0.0.1:3333/categories
+
+### Получение категории по ID
+GET https://127.0.0.1:3333/categories/:categoryId
+
+### Создание категории (необходим авторизационный токен)
+POST https://127.0.0.1:3333/categories
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+Content-Type: application/json
+
+{
+    "name": "New Category",
+    "description": "Description of the new category"
+}
+
+### Обновление категории (необходим авторизационный токен)
+PUT https://127.0.0.1:3333/categories/:categoryId
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+Content-Type: application/json
+
+{
+    "name": "Updated Category Name",
+    "description": "Updated description of the category"
+}
+
+### Удаление категории (необходим авторизационный токен)
+DELETE https://127.0.0.1:3333/categories/:categoryId
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8

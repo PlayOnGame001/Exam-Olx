@@ -5,7 +5,7 @@ import { Op } from "sequelize";
 
 
 export class AdvertController {
-    static async createListing(req: Request, res: Response) {
+    static async createAdvert(req: Request, res: Response) {
         try {
             const listing = await Advert.create(req.body);
             res.status(201).json(listing);
