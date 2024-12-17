@@ -1,11 +1,11 @@
-### Регистрация пользователя
+### Регистрация пользователя 1
 POST https://127.0.0.1:3333/users/register
 Content-Type: application/json
 
 {
-    "login": "user123",
-    "email": "user123@example.com",
-    "password": "securepassword",
+    "login": "Nikita",
+    "email": "Nk12@example.com",
+    "password": "1234",
     "role": "user"
 }
 
@@ -14,117 +14,135 @@ POST https://127.0.0.1:3333/users/register
 Content-Type: application/json
 
 {
-    "login": "user1231",
-    "email": "user1231@example.com",
-    "password": "securepassword1",
+    "login": "Arten",
+    "email": "art123@example.com",
+    "password": "test1test",
     "role": "seller"
 }
 
-### Логин пользователя
+### Логин
 POST  https://127.0.0.1:3333/users/login
 Content-Type: application/json
 
 {
-    "login": "user123",
-    "password": "securepassword"
+    "login": "test",
+    "password": "test"
 }
 
-### Логин пользователя 2
+### Логин 2
 POST  https://127.0.0.1:3333/users/login
 Content-Type: application/json
 
 {
-    "login": "user1231",
+    "login": "Vasilia",
     "password": "securepassword1"
 }
 
 ### Получение профиля пользователя (необходим авторизационный токен)
 GET  https://127.0.0.1:3333/users/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjQzNjllOC1hNzY0LTQzMmMtYjhmZC02NGIxY2I5NWJlMGUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzQzNjY1NzcsImV4cCI6MTczNDM3MDE3N30.9pCLOE0UWiuOvGh3ruE2-6NcMbtmer4AUV3eJN8QAwI
 
 ### Обновление данных пользователя (необходим авторизационный токен)
 PUT  https://127.0.0.1:3333/users/update
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjQzNjllOC1hNzY0LTQzMmMtYjhmZC02NGIxY2I5NWJlMGUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzQzNjY1NzcsImV4cCI6MTczNDM3MDE3N30.9pCLOE0UWiuOvGh3ruE2-6NcMbtmer4AUV3eJN8QAwI
 Content-Type: application/json
 
 {
-    "login": "newLogin",
-    "email": "newEmail@example.com",
+    "login": "Vasilia",
+    "email": "art124@example.com",
     "role": "seller"
 }
 
 ### Удаление пользователя (необходим авторизационный токен)
 DELETE  https://127.0.0.1:3333/users/delete
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxYzE0N2QxNS03NTAyLTQ3Y2ItOTlhZi1kMDc4MzE2MzNiYjYiLCJyb2xlIjoic2VsbGVyIiwiaWF0IjoxNzM0MzY2NjI5LCJleHAiOjE3MzQzNzAyMjl9.R8u7SM8_Bnc8YShwh56vShPpDAzOVqQXx9PAUwwrk8I
 
 ### Создание объявления (необходим авторизационный токен)
 POST https://127.0.0.1:3333/adverts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjQzNjllOC1hNzY0LTQzMmMtYjhmZC02NGIxY2I5NWJlMGUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzQzNjY1NzcsImV4cCI6MTczNDM3MDE3N30.9pCLOE0UWiuOvGh3ruE2-6NcMbtmer4AUV3eJN8QAwI
 Content-Type: application/json
 
 {
     "userId": "1f4369e8-a764-432c-b8fd-64b1cb95be0e",
-    "categoryId": "category-id",
-    "title": "Ne test11",
-    "description": "Sobitie1111",
-    "price": 1001.50,
-    "location": "Ukrain1",
+    "categoryId": "7bcfd65e-d758-4689-9e5c-f24bdb33c8ac",
+    "title": "machina2",
+    "description": "maclaren12",
+    "price": 1002,
+    "location": "NeOdess",
     "isAvailable": true
 }
 
 ### Получение объявления по ID
-GET https://127.0.0.1:3333/adverts/b060af0f-c352-46a7-b4fd-b4fca1d4e906
+GET https://127.0.0.1:3333/adverts/0052ca66-8897-49fc-ae43-d9f8fa0caf7f
 
 ### Получение всех объявлений
 GET https://127.0.0.1:3333/adverts
 
-### Обновление объявления (необходим авторизационный токен)
-PUT https://127.0.0.1:3333/adverts/b060af0f-c352-46a7-b4fd-b4fca1d4e906
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxOTUyMSwiZXhwIjoxNzMyMjIzMTIxfQ.lxyV__7IFrN6h2ifl0C11vBZQJH6SgCy7Oz4Zk5Iogo
+### Обновление объявления (необходим авторизационный токен) 
+PUT https://127.0.0.1:3333/adverts/0052ca66-8897-49fc-ae43-d9f8fa0caf7f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjQzNjllOC1hNzY0LTQzMmMtYjhmZC02NGIxY2I5NWJlMGUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzQzNjY1NzcsImV4cCI6MTczNDM3MDE3N30.9pCLOE0UWiuOvGh3ruE2-6NcMbtmer4AUV3eJN8QAwI
 Content-Type: application/json
 
 {
-    "title": "Обновленное название",
-    "description": "Обновленное описание",
-    "categoryId": "new-category-id",
-    "price": 150.75,
+    "title": "igra",
+    "description": "shooter",
+    "categoryId": "7bcfd65e-d758-4689-9e5c-f24bdb33c8ac",
+    "price": 150,
     "location": "Odessa",
     "isAvailable": false
 }
 
-### Удаление объявления (необходим авторизационный токен)
-DELETE https://127.0.0.1:3333/adverts/b060af0f-c352-46a7-b4fd-b4fca1d4e906
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxOTUyMSwiZXhwIjoxNzMyMjIzMTIxfQ.lxyV__7IFrN6h2ifl0C11vBZQJH6SgCy7Oz4Zk5Iogo
 
-### Поиск объявлений
-GET https://127.0.0.1:3333/adverts/search?category=:category&location=:location&priceMin=:minPrice&priceMax=:maxPrice&keyword=:keyword&sortBy=:sortBy&order=:order
+### Удаление объявления (необходим авторизационный токен)
+DELETE https://127.0.0.1:3333/adverts/0052ca66-8897-49fc-ae43-d9f8fa0caf7f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjQzNjllOC1hNzY0LTQzMmMtYjhmZC02NGIxY2I5NWJlMGUiLCJyb2xlIjoic2VsbGVyIiwiaWF0IjoxNzMyMjYxMzkzLCJleHAiOjE3MzIyNjQ5OTN9.3bb0CTMEQ8f_nRk8eFpwADxe0USMBAdyI4LGcCrxwi8
+
+### Создание категории (необходим авторизационный токен)
+POST https://127.0.0.1:3333/categories/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjQzNjllOC1hNzY0LTQzMmMtYjhmZC02NGIxY2I5NWJlMGUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzQzNjY1NzcsImV4cCI6MTczNDM3MDE3N30.9pCLOE0UWiuOvGh3ruE2-6NcMbtmer4AUV3eJN8QAwI
+Content-Type: application/json
+
+{
+    "name": "tanci"
+}
 
 ### Получение всех категорий
 GET https://127.0.0.1:3333/categories
 
 ### Получение категории по ID
-GET https://127.0.0.1:3333/categories/:categoryId
-
-### Создание категории (необходим авторизационный токен)
-POST https://127.0.0.1:3333/categories
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
-Content-Type: application/json
-
-{
-    "name": "New Category",
-    "description": "Description of the new category"
-}
+GET https://127.0.0.1:3333/categories/f37b316b-b632-4713-bfb5-8dbea15ce022
 
 ### Обновление категории (необходим авторизационный токен)
-PUT https://127.0.0.1:3333/categories/:categoryId
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+PUT https://127.0.0.1:3333/categories/7bcfd65e-d758-4689-9e5c-f24bdb33c8ac
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1NDY1ZjQ2Zi1iZDhhLTQzMzctYThkMi1mODE1NTM3NmYzNjgiLCJyb2xlIjoic2VsbGVyIiwiaWF0IjoxNzMyMjU5MDA5LCJleHAiOjE3MzIyNjI2MDl9.6xvQJYkianiTW75NmL4ITEW0AXbmJVduKPEIFbjLV0I
 Content-Type: application/json
 
 {
-    "name": "Updated Category Name",
-    "description": "Updated description of the category"
+    "name": "Sport Car"
 }
 
 ### Удаление категории (необходим авторизационный токен)
-DELETE https://127.0.0.1:3333/categories/:categoryId
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjdlMTMwYi02ZTg3LTQ0ZTEtYmI2Yy1kNjlhNjE1YzdiMDAiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMjIxNzg5NiwiZXhwIjoxNzMyMjIxNDk2fQ.za3SCye7XnZwujMlga_2zrne3HhdXEnnHmGnUgZTVm8
+DELETE https://127.0.0.1:3333/categories/f37b316b-b632-4713-bfb5-8dbea15ce022
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjQzNjllOC1hNzY0LTQzMmMtYjhmZC02NGIxY2I5NWJlMGUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzQzNjY1NzcsImV4cCI6MTczNDM3MDE3N30.9pCLOE0UWiuOvGh3ruE2-6NcMbtmer4AUV3eJN8QAwI
+
+
+### Отправка сообщения (необходим авторизационный токен)
+POST https://127.0.0.1:3333/chat/send
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjQzNjllOC1hNzY0LTQzMmMtYjhmZC02NGIxY2I5NWJlMGUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzQzNjY1NzcsImV4cCI6MTczNDM3MDE3N30.9pCLOE0UWiuOvGh3ruE2-6NcMbtmer4AUV3eJN8QAwI
+Content-Type: application/json
+
+{
+    "receiverId": "1f4369e8-a764-432c-b8fd-64b1cb95be0e",
+    "advertId": "23de0337-19e6-4acf-95bd-465f844bd326", 
+    "content": "Privet"
+}
+### "receiverId": "id отправителя",
+###"advertId": "id-объявления", 
+
+### Получение всех сообщений для конкретного чата (необходим авторизационный токен)
+GET https://127.0.0.1:3333/chat?otherUserId=5465f46f-bd8a-4337-a8d2-f8155376f368&advertId=0052ca66-8897-49fc-ae43-d9f8fa0caf7f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjQzNjllOC1hNzY0LTQzMmMtYjhmZC02NGIxY2I5NWJlMGUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzQzNjY1NzcsImV4cCI6MTczNDM3MDE3N30.9pCLOE0UWiuOvGh3ruE2-6NcMbtmer4AUV3eJN8QAwI
+
+### Удаление сообщения (необходим авторизационный токен)
+DELETE https://127.0.0.1:3333/chat/14b9fc2c-21c1-4683-9744-219cb7aecf6b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjQzNjllOC1hNzY0LTQzMmMtYjhmZC02NGIxY2I5NWJlMGUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzQzNjY1NzcsImV4cCI6MTczNDM3MDE3N30.9pCLOE0UWiuOvGh3ruE2-6NcMbtmer4AUV3eJN8QAwI

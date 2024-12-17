@@ -4,7 +4,7 @@ import { Advert } from "./advert-model.js";
 import { v4 as uuidv4 } from 'uuid'
 
 @Table({
-    tableName: "messages",
+    tableName: "chat",
     timestamps: true,
 })
 export class Message extends Model {

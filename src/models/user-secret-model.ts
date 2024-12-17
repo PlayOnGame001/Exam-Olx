@@ -7,20 +7,5 @@ import { v4 as uuidv4 } from "uuid";
     timestamps: false,
 })
 export class UserSecret extends Model {
-    @ForeignKey(() => User)
-    @Column({
-        type: DataType.UUID,
-        allowNull: false,
-        unique: true,
-    })
-    userId!: string;
 
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    secretKey!: string;
-
-    @BelongsTo(() => User)
-    user!: User;
-}
+} 

@@ -57,12 +57,4 @@ export class Advert extends Model {
         defaultValue: true,
     })
     declare isAvailable: boolean;
-
-    // // Связь с пользователем
-    // @BelongsTo(() => User)
-    // declare user: User;
-
-    // // Связь с категорией
-    // @BelongsTo(() => Category)
-    // declare category: Category;
 }

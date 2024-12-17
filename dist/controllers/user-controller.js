@@ -38,7 +38,8 @@ export class UserController {
             if (!isPasswordValid) {
                 return res.status(401).json({ message: "Ошибка в логине или пароле" });
             }
-            const token = jwt.sign({ userId: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1h" });
+            const token = jwt.sign({ userId: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1h" } //token будет жить 1 час 
+            );
             res.status(200).json({ message: "Логин прошел успешно", token });
         }
         catch (error) {
@@ -58,13 +59,12 @@ export class UserController {
             res.status(200).json({ message: "Пользователь успешно обновлен", user });
         }
         catch (error) {
-            console.error("Ошибка обновления:", error);
             res.status(500).json({ message: "Ошибка обновления пользователя", error });
         }
     }
     static async deleteUser(req, res) {
         try {
-            const userId = req.user.userId; // Уточняем тип
+            const userId = req.user.userId;
             const user = await User.findByPk(userId);
             if (!user) {
                 return res.status(404).json({ message: "Пользователь не найден" });
@@ -73,7 +73,6 @@ export class UserController {
             res.status(200).json({ message: "Пользователь удален успешно" });
         }
         catch (error) {
-            console.error("Ошибка удаления:", error);
             res.status(500).json({ message: "Ошибка удаления пользователя", error });
         }
     }
@@ -99,7 +98,6 @@ export class UserController {
             res.status(200).json(profileData);
         }
         catch (error) {
-            console.error("Ошибка при получении профиля пользователя:", error);
             res.status(500).json({ message: "Ошибка при получении профиля пользователя.", error });
         }
     }

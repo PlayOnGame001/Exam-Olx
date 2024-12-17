@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { MessageController } from "../controllers/message-controller.js";
+import { MessageController } from "../controllers/chat-controller.js";
 import { authenticateToken } from "../middleware/auth-middleware.js";
 
-export const messageRoutes = Router();
+export const chatRoutes = Router();
 
-messageRoutes.post("/send", authenticateToken, MessageController.sendMessage);
-messageRoutes.get("/", authenticateToken, MessageController.getMessages);
-messageRoutes.delete("/:messageId", authenticateToken, MessageController.deleteMessage);
+chatRoutes.post("/send", authenticateToken, MessageController.sendMessage);
+chatRoutes.get("/", authenticateToken, MessageController.getMessages);
+chatRoutes.delete("/:messageId", authenticateToken, MessageController.deleteMessage);

@@ -46,7 +46,6 @@ export class AdvertController {
             res.status(200).json(adverts);
         } 
         catch (error) {
-            console.error("Ошибка при загрузке объявления.:", error);
             res.status(500).json({ message: "Ошибка при загрузке объявления.", error });
         }
     }
@@ -69,7 +68,6 @@ export class AdvertController {
             res.status(200).json({ message: "Объявление успешно обновленно", advert });
         } 
         catch (error) {
-            console.error("Ошибка при загрузке объявления.:", error);
             res.status(500).json({ message: "Ошибка обновления объявления", error });
         }
     }
@@ -91,7 +89,6 @@ export class AdvertController {
             res.status(200).json({ message: "Объявление удалено" });
         } 
         catch (error) {
-            console.error("Ошибка при удалении:", error);
             res.status(500).json({ message: "Ошибка при удалении объявления", error });
         }
     }
@@ -138,7 +135,6 @@ export class AdvertController {
             res.status(200).json(adverts);
         } 
         catch (error) {
-            console.error("Ошибка поиска объявления:", error);
             res.status(500).json({ message: "Ошибка при поиске объявления", error });
         }
     }

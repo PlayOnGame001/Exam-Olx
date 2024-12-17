@@ -1,6 +1,6 @@
 import { JwtPayload } from "jsonwebtoken";
 
-declare global {
+declare global { //расширение територии
     namespace Express {
         interface Request {
             user?: string | JwtPayload;

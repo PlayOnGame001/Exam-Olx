@@ -1,11 +1,8 @@
 import "dotenv/config";
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import crypto from "crypto";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { v4 as uuidv4 } from "uuid";
-import nodemailer from "nodemailer";
-import { Op } from "sequelize";
 import redisClient from "../config/redis-config.js";
 import { User } from "../models/user-model.js";
 
@@ -52,7 +49,7 @@ export class UserController {
             const token = jwt.sign(
                 { userId: user.id, role: user.role },
                 process.env.JWT_SECRET as string,
-                { expiresIn: "1h" }
+                { expiresIn: "1h" }//token будет жить 1 час 
             );
             res.status(200).json({ message: "Логин прошел успешно", token });
         } 
@@ -74,14 +71,13 @@ export class UserController {
             res.status(200).json({ message: "Пользователь успешно обновлен", user });
         } 
         catch (error) {
-            console.error("Ошибка обновления:", error);
             res.status(500).json({ message: "Ошибка обновления пользователя", error });
         }
     }
 
     static async deleteUser(req: Request, res: Response):Promise<any> {
         try {
-            const userId = (req.user as JwtPayload & { userId: string }).userId; // Уточняем тип
+            const userId = (req.user as JwtPayload & { userId: string }).userId; 
             const user = await User.findByPk(userId);
             if (!user) {
                 return res.status(404).json({ message: "Пользователь не найден" });
@@ -90,7 +86,6 @@ export class UserController {
             res.status(200).json({ message: "Пользователь удален успешно" });
         } 
         catch (error) {
-            console.error("Ошибка удаления:", error);
             res.status(500).json({ message: "Ошибка удаления пользователя", error });
         }
     }
@@ -121,7 +116,6 @@ export class UserController {
             res.status(200).json(profileData);
         } 
         catch (error) {
-            console.error("Ошибка при получении профиля пользователя:", error);
             res.status(500).json({ message: "Ошибка при получении профиля пользователя.", error });
         }
     }

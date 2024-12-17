@@ -15,7 +15,6 @@ export class CategoryController {
             res.status(200).json(categories);
         }
         catch (error) {
-            console.error("Ошибак поиска категории:", error);
             res.status(500).json({ message: "Ошибак поиска категории", error });
         }
     }
@@ -29,7 +28,6 @@ export class CategoryController {
             res.status(200).json(category);
         }
         catch (error) {
-            console.error("Ошибак создания категории:", error);
             res.status(500).json({ message: "Ошибак поиска категории", error });
         }
     }
@@ -45,7 +43,6 @@ export class CategoryController {
             res.status(200).json({ message: "Категория успешно обновленна", category });
         }
         catch (error) {
-            console.error("Ошибка обновления категории:", error);
             res.status(500).json({ message: "Ошибка обновления категории", error });
         }
     }
@@ -60,7 +57,6 @@ export class CategoryController {
             res.status(200).json({ message: "Категория удалена успешно" });
         }
         catch (error) {
-            console.error("Ошибка удаления категории:", error);
             res.status(500).json({ message: "Ошибка удаления категории", error });
         }
     }

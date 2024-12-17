@@ -4,7 +4,7 @@ import { User } from "../models/user-model.js";
 import { UserSecret } from "../models/user-secret-model.js";
 import { Category } from "../models/category-models.js";
 import { Advert } from "../models/advert-model.js";
-import { Message } from "../models/message-model.js";
+import { Message } from "../models/chat-model.js";
 
 export const connection = new Sequelize({
     dialect: "mysql",
